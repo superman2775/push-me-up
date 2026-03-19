@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Push Me Up - Push-Up Game</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Push-Up Game</p>
+          <h1>Turn push-ups into a game.</h1>
+          <p class="subtitle">Streaks, levels, loot, challenges, titles, collections, and more. Everything you do earns progress.</p>
+          <div class="hero-actions">
+            <button id="logSetBtn" class="primary">Log Set</button>
+            <button id="openBoxBtn" class="ghost">Open Mystery Box</button>
+          </div>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <p class="stat-label">Streak</p>
+            <p class="stat-value" id="streakValue">0 days</p>
+            <p class="stat-foot" id="streakHint">Log a set to begin.</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-label">Level</p>
+            <p class="stat-value" id="levelValue">1</p>
+            <p class="stat-foot" id="levelHint">0/100 XP</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-label">Mystery Boxes</p>
+            <p class="stat-value" id="boxCount">0</p>
+            <p class="stat-foot" id="boxHint">Drop chance: 25%</p>
+          </div>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="panel">
+          <h2>Log a Set</h2>
+          <p class="panel-sub">Every rep earns XP and sparks combos. Stack streaks for multipliers.</p>
+          <div class="controls">
+            <label class="input">
+              Reps per set
+              <input id="repsInput" type="number" min="1" max="200" value="10" />
+            </label>
+            <label class="input">
+              Intensity
+              <select id="intensitySelect">
+                <option value="1">Casual</option>
+                <option value="1.25">Strong</option>
+                <option value="1.5">Beast</option>
+              </select>
+            </label>
+            <label class="input">
+              Time Bonus
+              <select id="timeSelect">
+                <option value="1">Normal</option>
+                <option value="1.1">Morning boost</option>
+                <option value="1.1">Night grind</option>
+              </select>
+            </label>
+          </div>
+          <div class="panel-row">
+            <div>
+              <p class="label">Total Reps</p>
+              <p class="value" id="totalReps">0</p>
+            </div>
+            <div>
+              <p class="label">XP</p>
+              <p class="value" id="xpValue">0</p>
+            </div>
+            <div>
+              <p class="label">Combo</p>
+              <p class="value" id="comboValue">x1.0</p>
+            </div>
+            <div>
+              <p class="label">Energy</p>
+              <p class="value" id="energyValue">100%</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Quests and Missions</h2>
+          <p class="panel-sub">Short-term goals that keep workouts fresh.</p>
+          <div class="quest-list" id="questList"></div>
+          <div class="panel-actions">
+            <button id="rerollQuestBtn" class="ghost">Reroll Quest</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Achievements</h2>
+          <p class="panel-sub">Unlock permanent trophies for big milestones.</p>
+          <div class="badge-grid" id="achievementList"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Badge Wall</h2>
+          <p class="panel-sub">Collect items and titles from mystery boxes.</p>
+          <div class="badge-grid" id="badgeList"></div>
+        </section>
+
+        <section class="panel">
+          <h2>League Board</h2>
+          <p class="panel-sub">Beat your personal bests and climb the ranks.</p>
+          <div class="leaderboard" id="leaderboard"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Daily and Weekly Goals</h2>
+          <p class="panel-sub">Stay consistent for bonus rewards.</p>
+          <div class="goal-list">
+            <div class="goal" id="dailyGoal"></div>
+            <div class="goal" id="weeklyGoal"></div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Shop and Power-Ups</h2>
+          <p class="panel-sub">Spend coins to fuel your next session.</p>
+          <div class="shop" id="shop"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Progress Journal</h2>
+          <p class="panel-sub">A snapshot of your last 7 sessions.</p>
+          <div class="journal" id="journal"></div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-card">
+          <p class="label">Coins</p>
+          <p class="value" id="coinValue">0</p>
+        </div>
+        <div class="footer-card">
+          <p class="label">Titles</p>
+          <p class="value" id="titleValue">Rookie</p>
+        </div>
+        <div class="footer-card">
+          <p class="label">Legendary Drops</p>
+          <p class="value" id="legendaryValue">0</p>
+        </div>
+      </footer>
+
+      <div class="toast" id="toast" aria-live="polite"></div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
